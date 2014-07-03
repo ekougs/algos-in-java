@@ -67,7 +67,7 @@ public class BinaryTreeNode<X, Y> {
             return "null";
         }
         StringBuilder nodeStringBuilder = new StringBuilder();
-        nodeStringBuilder.append("BTNodeImpl{")
+        nodeStringBuilder.append("Node{")
                          .append("key=").append(node.getKey())
                          .append(", value=").append(node.getValue())
                          .append(", size=").append(node.getSize())

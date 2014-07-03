@@ -18,12 +18,6 @@ public interface ComparableSymbolTable<X extends Comparable<X>,Y> extends Symbol
     X ceiling(X key);
 
     /**
-     * @param key Key to rank
-     * @return Number of keys strictlyLesser than the provided key
-     */
-    int rank(X key);
-
-    /**
      * @param k Number of keys which are smaller than the key to return
      * @return A key for which <b>rank(select(key)) == k<b/>
      */

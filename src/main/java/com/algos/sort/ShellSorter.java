@@ -20,7 +20,7 @@ public class ShellSorter<T extends Comparable<T>> implements Sorter<T> {
         return tableToSort;
     }
 
-    private int getInitialStep(T[] tableToSort) {
+    private static<T> int getInitialStep(T[] tableToSort) {
         int h = 1;
         int size = tableToSort.length;
         while (h < size / INITIAL_K) {

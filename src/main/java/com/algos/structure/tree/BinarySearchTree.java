@@ -79,11 +79,6 @@ public class BinarySearchTree<X extends Comparable<X>, Y> implements ComparableS
     }
 
     @Override
-    public int rank(X key) {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
     public X select(int k) {
         return select(root, k);
     }

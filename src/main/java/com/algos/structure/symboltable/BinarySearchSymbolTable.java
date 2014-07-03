@@ -68,7 +68,6 @@ public class BinarySearchSymbolTable<X extends Comparable<X>, Y> implements Comp
         return keys[rank];
     }
 
-    @Override
     public int rank(X key) {
         return rank(key, 0, size - 1);
     }
