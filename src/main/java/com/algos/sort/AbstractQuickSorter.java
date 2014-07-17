@@ -10,9 +10,10 @@ public abstract class AbstractQuickSorter<T extends Comparable<T>> implements So
     protected T[] tableToSort;
 
     @Override
-    public void sort(T[] tableToSort) {
+    public T[] sort(T[] tableToSort) {
         this.tableToSort = shuffle(tableToSort);
         sort(0, tableToSort.length - 1);
+        return tableToSort;
     }
 
     protected abstract boolean check(int loIndex, int hiIndex);
@@ -50,10 +51,10 @@ public abstract class AbstractQuickSorter<T extends Comparable<T>> implements So
                 SorterHelper.exchange(tableToSort, leftScanIndex, rightScanIndex);
                 continue;
             }
-            if (SorterHelper.lesser(tableToSort[rightScanIndex], partitioningItem)) {
+            if (SorterHelper.strictlyLesser(tableToSort[rightScanIndex], partitioningItem)) {
                 rightScanStopped = true;
             }
-            if (SorterHelper.lesser(partitioningItem, tableToSort[leftScanIndex])) {
+            if (SorterHelper.strictlyLesser(partitioningItem, tableToSort[leftScanIndex])) {
                 leftScanStopped = true;
             }
             if (!leftScanStopped) {

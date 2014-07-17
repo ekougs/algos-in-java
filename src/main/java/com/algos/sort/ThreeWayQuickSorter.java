@@ -10,9 +10,10 @@ public class ThreeWayQuickSorter<T extends Comparable<T>> implements Sorter<T> {
     private T[] tableToSort;
 
     @Override
-    public void sort(T[] tableToSort) {
+    public T[] sort(T[] tableToSort) {
         this.tableToSort = tableToSort;
         sort(0, tableToSort.length -1);
+        return tableToSort;
     }
 
     private void sort(int lowIndex, int highIndex) {

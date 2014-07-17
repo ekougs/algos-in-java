@@ -12,11 +12,12 @@ public class InsertionSorter<T extends Comparable<T>> implements Sorter<T> {
     private T[] tableToSort;
 
     @Override
-    public void sort(T[] tableToSort) {
+    public T[] sort(T[] tableToSort) {
         this.tableToSort = tableToSort;
         for (int position = 0; position < tableToSort.length; position++) {
             shiftLeftEveryElementLesserThanPreviousFrom(position);
         }
+        return tableToSort;
     }
 
     private void shiftLeftEveryElementLesserThanPreviousFrom(int index) {
