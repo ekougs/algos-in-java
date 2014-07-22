@@ -29,23 +29,17 @@ public class ShellSorter<T extends Comparable<T>> implements Sorter<T> {
         return h;
     }
 
-    private void shiftLeftEveryElementLesserThanPreviousForStepFrom(int currentStep, T[] tableToSort) {
-        for (int index = 0; index < tableToSort.length; index += currentStep) {
-            shiftLeftEveryElementLesserThanPreviousFrom(index, currentStep, tableToSort);
+    private void shiftLeftEveryElementLesserThanPreviousForStepFrom(int step, T[] tableToSort) {
+        for (int index = step; index < tableToSort.length; index++) {
+            shiftLeftEveryElementLesserThanPreviousFrom(index, step, tableToSort);
         }
     }
 
     private void shiftLeftEveryElementLesserThanPreviousFrom(int index, int step, T[] tableToSort) {
         for (int currentIndex = index;
-             currentIndex > 0 && lesser(tableToSort[currentIndex], tableToSort[currentIndex - step]);
+             currentIndex >= step && lesser(tableToSort[currentIndex], tableToSort[currentIndex - step]);
              currentIndex -= step) {
-            shiftLeftElement(currentIndex, step, tableToSort);
+            SorterHelper.exchange(tableToSort, currentIndex, currentIndex - step);
         }
-    }
-
-    private void shiftLeftElement(int currentIndex, int step, T[] tableToSort) {
-        T element = tableToSort[currentIndex];
-        tableToSort[currentIndex] = tableToSort[currentIndex - step];
-        tableToSort[currentIndex - step] = element;
     }
 }
